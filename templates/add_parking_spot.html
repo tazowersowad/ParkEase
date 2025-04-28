@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Parking Spot - ParkEase</title>
+</head>
+<body>
+    <div class="add-parking-container">
+        <h1>Add New Parking Spot</h1>
+
+        <form action="{{ url_for('add_parking_spot') }}" method="POST">
+            <input type="text" name="name" placeholder="Parking Spot Name" required><br>
+            <input type="text" name="address" placeholder="Address" required><br>
+            <input type="text" name="latitude" placeholder="Latitude" required><br>
+            <input type="text" name="longitude" placeholder="Longitude" required><br>
+            <input type="number" step="0.01" name="price_hourly" placeholder="Price Hourly (৳)" required><br>
+            <input type="number" step="0.01" name="price_monthly" placeholder="Price Monthly (৳)" required><br>
+
+            <input type="submit" value="Add Parking Spot">
+        </form>
+
+        <br>
+        <a href="{{ url_for('admin_dashboard') }}">Back to Admin Dashboard</a>
+    </div>
+</body>
+</html>

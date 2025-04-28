@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking History - ParkEase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="history-container">
+        <h1>My Booking History</h1>
+
+        {% if bookings %}
+            <table border="1" cellpadding="10" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Parking Spot</th>
+                        <th>Price</th>
+                        <th>Booking Type</th>
+                        <th>Entry Time</th>
+                        <th>Exit Time</th>
+                        <th>Booking Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                        <tr>
+                            <td>{{ booking.spot_name }}</td>
+                            <td>৳{{ booking.price }}</td>
+                            <td>{{ booking.booking_type }}</td>
+                            <td>{{ booking.entry_time.strftime('%Y-%m-%d %H:%M') }}</td>
+                            <td>{{ booking.exit_time.strftime('%Y-%m-%d %H:%M') }}</td>
+                            <td>{{ booking.created_at.strftime('%Y-%m-%d') }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No bookings found yet!</p>
+        {% endif %}
+
+        <br>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ParkEase - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Welcome to ParkEase!</h1>
+    <a href="{{ url_for('login') }}">Login</a> | 
+    <a href="{{ url_for('signup') }}">Sign Up</a> | 
+    <a href="{{ url_for('login') }}">Admin</a>
+</body>
+</html>

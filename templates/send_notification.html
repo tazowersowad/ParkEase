@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Notification - Admin - ParkEase</title>
+</head>
+<body>
+    <h1>Send Notification</h1>
+
+    <form action="{{ url_for('send_notification') }}" method="POST">
+        <label for="user_id">Select Driver:</label><br>
+        <select name="user_id" required>
+            {% for driver in drivers %}
+                <option value="{{ driver.id }}">{{ driver.name }} (ID: {{ driver.id }})</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="title">Title:</label><br>
+        <input type="text" name="title" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea name="message" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Send Notification">
+    </form>
+
+    <br>
+    <a href="{{ url_for('admin_dashboard') }}">Back to Admin Dashboard</a>
+</body>
+</html>

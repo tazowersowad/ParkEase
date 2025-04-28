@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - ParkEase</title>
+</head>
+<body>
+    
+    <h2>Login</h2>
+    <form action="{{ url_for('login') }}" method="POST">
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <input type="submit" value="Login">
+    </form>
+    
+    <h3>Or</h3>
+    <a href="{{ url_for('google.login') }}">
+    <button>Sign In with Google</button>
+    </a>
+
+    <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign up here</a></p>
+</body>
+</html>

@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--background);
+    color: var(--text);
+    transition: all 0.3s;
+}
+
+:root {
+    --background: #ffffff;
+    --text: #000000;
+}
+
+.dark-mode {
+    --background: #121212;
+    --text: #ffffff;
+}
+
+.dashboard-container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-buttons {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.dashboard-button {
+    padding: 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+.dashboard-button:hover {
+    background-color: #2980b9;
+}
+
+.logout-button {
+    background-color: crimson;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+}
+.logout-button:hover {
+    background-color: darkred;
+}
+
+
+
+
+
+
+
+
+
+.booking-container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.booking-form input, .booking-form select {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    font-size: 16px;
+}
+
+.booking-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#map {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+
+.history-container {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+td, th {
+    padding: 12px;
+    text-align: center;
+}
+.details-container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.details-form input, .details-form select {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    font-size: 16px;
+}
+.feedback-container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.feedback-form select, .feedback-form textarea, .feedback-form input[type="submit"] {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    font-size: 16px;
+}

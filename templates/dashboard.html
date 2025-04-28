@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Driver Dashboard - ParkEase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <h1>Welcome, {{ current_user.name }}!</h1>
+
+<!-- Notification Bell -->
+<div style="float:right;">
+    <a href="#notifications">
+        🔔 Notifications ({{ notifications|length }})
+    </a>
+</div>
+
+<!-- Notifications List -->
+<h2 id="notifications">Your Notifications</h2>
+{% if notifications %}
+    <ul>
+        {% for notif in notifications %}
+            <li>
+                <strong>{{ notif.title }}</strong><br>
+                {{ notif.message }}<br>
+                <small>{{ notif.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No new notifications!</p>
+{% endif %}
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Welcome, {{ current_user.name }}!</h1>
+            <button id="toggle-mode">Light/Dark Mode</button>
+            <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+        </div>
+
+        <div class="dashboard-buttons">
+            <a href="{{ url_for('book_parking') }}" class="dashboard-button">Book a Parking Spot</a>
+            <a href="{{ url_for('booking_history') }}" class="dashboard-button">View Booking History</a>
+            <a href="{{ url_for('personal_details') }}" class="dashboard-button">View/Update Personal Details</a>
+            <a href="{{ url_for('feedback') }}" class="dashboard-button">Feedback</a>
+        </div>
+    </div>
+</body>
+</html>

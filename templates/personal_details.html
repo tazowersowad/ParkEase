@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Details - ParkEase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="details-container">
+        <h1>My Personal Details</h1>
+
+        <form action="{{ url_for('personal_details') }}" method="POST" class="details-form">
+            <input type="text" name="phone_number" placeholder="Phone Number" value="{{ user.phone_number or '' }}" required><br>
+
+            <label>Vehicle Type:</label><br>
+            <select name="vehicle_type" required>
+                <option value="">Select</option>
+                <option value="Bike" {% if user.vehicle_type == 'Bike' %}selected{% endif %}>Bike</option>
+                <option value="Car" {% if user.vehicle_type == 'Car' %}selected{% endif %}>Car</option>
+                <option value="SUV" {% if user.vehicle_type == 'SUV' %}selected{% endif %}>SUV</option>
+                <option value="Microbus" {% if user.vehicle_type == 'Microbus' %}selected{% endif %}>Microbus</option>
+                <option value="Minibus" {% if user.vehicle_type == 'Minibus' %}selected{% endif %}>Minibus</option>
+            </select><br><br>
+
+            <input type="text" name="vehicle_model_name" placeholder="Vehicle Model Name" value="{{ user.vehicle_model_name or '' }}" required><br>
+            <input type="text" name="vehicle_registration_no" placeholder="Vehicle Registration No." value="{{ user.vehicle_registration_no or '' }}" required><br>
+
+            <input type="submit" value="Update Details">
+        </form>
+
+        <br>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+</body>
+</html>

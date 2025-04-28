@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback - ParkEase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="feedback-container">
+        <h1>Give Feedback on Your Parking</h1>
+
+        {% if bookings %}
+            <form action="{{ url_for('feedback') }}" method="POST" class="feedback-form">
+                <label>Select a Booking:</label><br>
+                <select name="booking_id" required>
+                    {% for booking in bookings %}
+                        <option value="{{ booking.id }}">{{ booking.spot_name }} ({{ booking.entry_time.strftime('%Y-%m-%d') }})</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <label>Rating (1 to 5 Stars):</label><br>
+                <select name="rating" required>
+                    <option value="">Select Rating</option>
+                    {% for star in range(1, 6) %}
+                        <option value="{{ star }}">{{ star }} Star{% if star > 1 %}s{% endif %}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <textarea name="comment" placeholder="Write your feedback..." rows="4" cols="50" required></textarea><br>
+
+                <input type="submit" value="Submit Feedback">
+            </form>
+        {% else %}
+            <p>No bookings available to give feedback.</p>
+        {% endif %}
+
+        <br>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+</body>
+</html>
